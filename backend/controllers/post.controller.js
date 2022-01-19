@@ -5,7 +5,4 @@ const Post = require("../models/post.model")
 const router = express.Router()
 
 router.post("/" ,async(res,req)=>{
-try{
-    const post = 
-}
 })
