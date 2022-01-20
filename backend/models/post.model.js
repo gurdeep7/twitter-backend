@@ -1,3 +1,4 @@
+const { type } = require("express/lib/response")
 const mongoose = require("mongoose")
 
 const postSchema = new mongoose.Schema({
@@ -6,10 +7,15 @@ const postSchema = new mongoose.Schema({
     required:true,
 },
     img:{type:String, required: false, default:"#"},
-    text:{type:String, required:true}
+    text:{type:String, required:true},
+    likes:[{type:mongoose.Schema.Types.ObjectId,
+    ref:"user"
+    }]
 },
+
 {
     versionKey: false,
     timestamps: true,
   })
 
+module.exports=mongoose.model("post",postSchema)

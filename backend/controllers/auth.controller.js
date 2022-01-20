@@ -48,7 +48,8 @@ const login = async (req, res) => {
 };
 
 const profile = async (req,res)=>{
-   try {let update = await User.findOne({ email: req.body.email });
+   try {
+     //let update = await User.findOne({ email: req.body.email });
 
     const user = await User.findByIdAndUpdate(user._id, req.body).select("-password")
 
