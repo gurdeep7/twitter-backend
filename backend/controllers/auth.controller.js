@@ -14,6 +14,12 @@ const register = async (req, res) => {
         status: "failed",
         message: " Please provide a different email address",
       });
+      user = await User.findOne({username: req.body.username}).lean().exec()
+      if (user)
+      return res.status(400).json({
+        status: "failed",
+        message: "Please provide a different user name",
+      });
     user = await User.create(req.body);
    
     const token = newToken(user);
