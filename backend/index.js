@@ -10,6 +10,7 @@ const { body, validationResult } = require('express-validator');
 
 var http = require('http').Server(app);
 
+
 const Message = require("./models/message.model")
 
 const io = require('socket.io')(http);
